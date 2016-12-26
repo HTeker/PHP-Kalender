@@ -1,0 +1,353 @@
+/** How To Create A Simple Dynamic Calendar Table With PHP | Tutorial.World.Edu **/
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700);
+@import url(http://weloveiconfonts.com/api/?family=entypo|fontawesome|zocial);
+/* entypo */
+[class*="entypo-"]:before {
+    font-family: 'entypo', sans-serif;
+}
+/* fontawesome */
+[class*="fontawesome-"]:before {
+    font-family: 'FontAwesome', sans-serif;
+}
+/* zocial */
+[class*="zocial-"]:before {
+    font-family: 'zocial', sans-serif;
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src:url('http://jlalovi-cv.herokuapp.com/font/icomoon.eot');
+    src:url('http://jlalovi-cv.herokuapp.com/font/icomoon.eot?#iefix') format('embedded-opentype'),
+    url('http://jlalovi-cv.herokuapp.com/font/icomoon.ttf') format('truetype'),
+    url('http://jlalovi-cv.herokuapp.com/font/icomoon.woff') format('woff'),
+    url('http://jlalovi-cv.herokuapp.com/font/icomoon.svg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.icon-cloudy:before {
+    content: "\e60f";
+}
+.icon-sun:before {
+    content: "\e610";
+}
+.icon-cloudy2:before {
+    content: "\e611";
+}
+@font-face {
+font-family: Mathilde;
+src: url("../fonts/mathilde.otf") format("opentype");
+}
+/************************************* END FONTS *************************************/
+/** MAIN CONTAINER **/
+
+.main-container {
+    font-family: 'Ubuntu', sans-serif;
+    display: table;
+    margin: 0 auto;
+}
+
+/** CONTAINERS **/
+.container {
+    float: left;
+    width: 300px;
+}
+.block {
+    margin-bottom: 25px;
+    background: #394264;
+    border-radius: 5px;
+}
+.right-container {}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+body {
+    background: #1f253d;
+}
+
+h1 {
+    font-size: 23px;
+}
+
+h2 {
+    font-size: 17px;
+}
+
+p {
+    font-size: 15px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 15px;
+}
+a:hover {
+
+}
+
+h1, h2, p, a, span{
+    color: #fff;
+}
+.scnd-font-color {
+    color: #9099b7;
+    line-height: 0;
+}
+
+.icon {
+    font-size: 25px;
+}
+
+.titular {
+    display: block;
+    line-height: 60px;
+    margin: 0;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.arrow-btn-container {
+    position: relative;
+}
+.arrow-btn {
+    position: absolute;
+    display: block;
+    width: 60px;
+    height: 60px;
+    -webkit-transition: background .3s;
+    transition: background .3s;
+}
+.arrow-btn:hover {
+    text-decoration: none;
+}
+.arrow-btn.left {
+    border-top-left-radius: 5px;
+}
+.arrow-btn.right {
+    border-top-right-radius: 5px;
+    right: 0;
+    top: 0;
+}
+.arrow-btn .icon {
+    display: block;
+    font-size: 18px;
+    border: 2px solid #fff;
+    border-radius: 100%;
+    line-height: 17px;
+    width: 21px;
+    margin: 20px auto;
+    text-align: center;
+}
+.arrow-btn.left .icon {
+    padding-right: 2px;
+}
+
+.calendar-day {
+    height: 320px;
+    background: #3468af;
+}
+.calendar-day .titular {
+    background: #1a4e95;
+}
+.calendar-day .arrow-btn:hover {
+    background: #16417E;
+}
+.calendar-day .the-day {
+    margin: 0;
+    text-align: center;
+    font-size: 146px;
+}
+.add-event.button {
+    background: #4fc4f6;
+}
+.add-event.button:hover {
+    background: #35aadc;
+}
+.calendar-month {
+    height: 100%;
+}
+.calendar-month .titular {
+    background: #3468af;
+}
+.calendar-month .arrow-btn:hover {
+    background: #1a4e95;
+}
+.calendar {
+    margin: 22px 15px;
+    text-align: center;
+}
+.calendar a {
+    font-size: 17px;
+}
+.calendar td, .calendar th {
+    width: 40px;
+    height: 38px;
+}
+.calendar .days-week {
+    color: #4fc4f6;
+}
+.calendar .today {
+    display: block;
+    width: 26px;
+    line-height: 26px;
+    background: #e64c65;
+    border-radius: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* CUSTOM CSS */
+.header-wrapper{
+    height: 100px;
+    text-align: center;
+}
+.footer-wrapper{
+    height: 35px;
+    text-align: right;
+}
+.header-wrapper,.footer-wrapper{
+    font-family: 'Ubuntu', sans-serif;
+    display: table;
+    color: #FFFFFF;
+}
+.second-header-wrapper{
+    width: 250px;
+}
+.second-footer-wrapper{
+    width: 530px;
+}
+.second-header-wrapper,.second-footer-wrapper{
+    display: table-cell;
+    vertical-align: middle;
+}
+.alles-hoofdletter{
+    text-transform: uppercase;
+}
+
+.main-container {
+    font-family: 'Ubuntu', sans-serif;
+    display: table;
+}
+
+.container {
+    /* none */
+    display: table;
+    table-layout: fixed;
+    width: 550px;
+}
+.kalender, .evenementen-wrapper {
+    float: none;
+    vertical-align: top;
+}
+.kalender {
+    width: 100%;
+    background-color: #394264;
+    display: table; /* table-cell */
+}
+.evenementen-wrapper {
+    width: 43%;
+    background-image: url("../images/notitieblok.png");
+    display: table-cell;
+    padding: 10px;
+    padding-top: 15px !important;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.notities{
+    color: #4D4D4D;
+    font-family: "Mathilde";
+    font-size: 28pt;
+    line-height: 15pt;
+    margin-bottom: 2px;
+}
+
+.streep{
+    position: relative;
+    top: 10px;
+    right: 24px;
+}
+
+.notities-container{
+    position: relative;
+    top: -7px;
+    right: -15px;
+    width: 95.5%;
+    min-height: 319px;
+    /*background-color: black;*/
+    padding: 4.5px;
+}
+
+.page-wrapper{
+    position: relative;
+    width: inherit;
+    height: inherit;
+}
+
+.next-page{
+    position: relative;
+    bottom: 186px;
+    right: 13px;
+}
+
+.indicator-wrapper{
+    position: relative;
+    z-index: 1;
+    opacity:0.8;
+}
+
+.indicator{
+    background-color: #3468AF;
+    display: block;
+    width: 16px;
+    line-height: 16px;
+    border-radius: 100%;
+    text-align: center;
+    font-size: 8pt;
+    position: absolute;
+    right: 0px;
+    top: -8px;
+}
+
+.vandaag .indicator-wrapper{
+    z-index: 20 !important;
+}
+
+.vandaag .indicator{
+    right: 0px !important;
+    top: -5px !important;
+}
+
+.calendar .geselecteerd{
+    color: #E8E298;
+}
+
+.tijd-wrapper{
+    font-size: 22pt;
+}
+.geen-evenement{
+    margin-top: 18px;
+}
+
+.krabbel{
+    background-image: url("../images/krabbel1.png");
+}
